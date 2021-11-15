@@ -35,11 +35,12 @@ public class AireAcondicionado
     public void subirTemperatura() {
         if ((temperatura + incremento) <= max) {
             temperatura = temperatura + incremento;
+            cambiosTemperatura = cambiosTemperatura + 1;
         }
         else {
             System.out.println("Temperatura maxima alcanzada");
         }
-        cambiosTemperatura = cambiosTemperatura + 1;
+        
         if (temperatura > valorMaximo) {
             valorMaximo = temperatura;
         }
@@ -49,11 +50,12 @@ public class AireAcondicionado
     public void bajarTemperatura() {
         if ((temperatura - incremento) >= min) {
             temperatura = temperatura - incremento;
+            cambiosTemperatura = cambiosTemperatura + 1;
         }
         else {
             System.out.println("Temperatura minima alcanzada");
         }
-        cambiosTemperatura = cambiosTemperatura + 1;
+        
         if (temperatura < valorMinimo) {
             valorMinimo = temperatura;
         }
