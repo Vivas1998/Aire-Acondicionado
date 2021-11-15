@@ -8,7 +8,7 @@
 public class AireAcondicionado
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private double temperatura;
 
     /**
      * Constructor for objects of class AireAcondicionado
@@ -16,18 +16,20 @@ public class AireAcondicionado
     public AireAcondicionado()
     {
         // initialise instance variables
-        x = 0;
+        temperatura = 15.0;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    //Subir temperatura
+    public void subirTemperatura() {
+        temperatura = temperatura + 5.0;
+    }
+    
+    //Bajar Temperatura
+    public void bajarTemperatura() {
+        temperatura = temperatura - 5.0;
+    }
+    
+    public double getTemperatura() {
+        return temperatura;
     }
 }
