@@ -36,12 +36,13 @@ public class AireAcondicionado
         if ((temperatura + incremento) <= max) {
             temperatura = temperatura + incremento;
             cambiosTemperatura = cambiosTemperatura + 1;
+                if (temperatura > valorMaximo) {
+                    valorMaximo = temperatura;
+                }
         }
         else {
             System.out.println("Temperatura maxima alcanzada");
-        }
-        
-        if (temperatura > valorMaximo) {
+        }if (temperatura > valorMaximo) {
             valorMaximo = temperatura;
         }
     }
@@ -51,13 +52,12 @@ public class AireAcondicionado
         if ((temperatura - incremento) >= min) {
             temperatura = temperatura - incremento;
             cambiosTemperatura = cambiosTemperatura + 1;
+                if (temperatura < valorMinimo) {
+                    valorMinimo = temperatura;
+                }
         }
         else {
             System.out.println("Temperatura minima alcanzada");
-        }
-        
-        if (temperatura < valorMinimo) {
-            valorMinimo = temperatura;
         }
     }
     
