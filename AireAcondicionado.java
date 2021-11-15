@@ -12,6 +12,9 @@ public class AireAcondicionado
     private double min;
     private double max;
     private double incremento;
+    private int cambiosTemperatura;
+    private double valorMaximo;
+    private double valorMinimo;
 
     /**
      * Constructor for objects of class AireAcondicionado
@@ -23,6 +26,9 @@ public class AireAcondicionado
         incremento = 5.0;
         min = temperaturaMin;
         max = temperaturaMax;
+        cambiosTemperatura = 0;
+        valorMaximo = temperatura;
+        valorMinimo = temperatura;
     }
 
     //Subir temperatura
@@ -33,6 +39,10 @@ public class AireAcondicionado
         else {
             System.out.println("Temperatura maxima alcanzada");
         }
+        cambiosTemperatura = cambiosTemperatura + 1;
+        if (temperatura > valorMaximo) {
+            valorMaximo = temperatura;
+        }
     }
     
     //Bajar Temperatura
@@ -42,6 +52,10 @@ public class AireAcondicionado
         }
         else {
             System.out.println("Temperatura minima alcanzada");
+        }
+        cambiosTemperatura = cambiosTemperatura + 1;
+        if (temperatura < valorMinimo) {
+            valorMinimo = temperatura;
         }
     }
     
@@ -58,5 +72,17 @@ public class AireAcondicionado
         else {
             System.out.println("No se permiten incrementos negativos");
         }
+    }
+    
+    //Imprime por pantalla las estadisticas
+    public void mostrarEstadisticas() {
+        String detalles = getEstadisticas();
+        System.out.println(detalles);
+    }
+    
+    //Devuelve las estadisticas
+    public String getEstadisticas() {
+        String detallesEstadisticas = ("Temperatura actual: " + temperatura + ", la temperatura maxima posible: " + max + ", temperatura minima posible: " + min + ", temperatura maxima seleccionada: " + valorMaximo + ", temperatura minima seleccionada: " + valorMinimo + ", temperatura cambiada " + cambiosTemperatura + " veces");
+        return detallesEstadisticas;
     }
 }
